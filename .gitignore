@@ -5,6 +5,7 @@ target/
 .idea
 out
 target
+.mvn
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

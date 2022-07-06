@@ -4,21 +4,39 @@
 <html>
 <head>
     <title>Listes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/e293f8832a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>
-    Listes
-</h1>
+<div class="row">
+    <h1 class="col-6 offset-3 text-center">
+        Listes de courses
+    </h1>
+</div>
 <br/>
-<c:forEach var="liste" items="${listes}">
-    <li class="list-group-item d-flex justify-content-between align-items-center">${liste.nom}
-        <div>
-            <a href="${pageContext.request.contextPath}/nouvelle?id=${liste.id}" class="badge" title="Editer la liste"><i class="material-icons">create</i></a>
-            <a href="${pageContext.request.contextPath}/panier?id=${liste.id}" class="badge" title="Commencer ses courses"><i class="material-icons">shopping_cart</i></a>
-            <a href="${pageContext.request.contextPath}/listes?supprimer=${liste.id}" class="badge text-danger" title="Supprimer"><i class="material-icons">delete</i></a>
-        </div>
-
-    </li>
-</c:forEach>
+<div class="container">
+    <c:forEach var="liste" items="${listes}">
+        <ul class="list-group col-4 offset-4">
+            <li class="list-group-item text-center">
+                <span class="text-start">
+                    <a class="link-primary" href="#">${liste.nom}</a>
+                </span>
+                &nbsp
+                <span class="text-end">
+                    <a class="link-primary" href="${pageContext.request.contextPath}/nouvelle?id=${liste.id}"><i
+                            class="fa-solid fa-pen"></i></a>
+                    <a class="link-primary" href="${pageContext.request.contextPath}/panier?id=${liste.id}"><i
+                            class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="link-primary" href="${pageContext.request.contextPath}/listes?supprimer=${liste.id}"><i
+                            class="fa-solid fa-trash"></i></a>
+                </span>
+            </li>
+        </ul>
+    </c:forEach>
+    <hr>
+    <a href="${pageContext.request.contextPath}/nouvelle"><i class="fa-solid fa-list"></i>&nbsp; Ajouter une liste de
+        courses</a>
+</div>
 </body>
 </html>
