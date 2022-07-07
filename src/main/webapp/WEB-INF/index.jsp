@@ -24,6 +24,8 @@
                 </span>
                 &nbsp
                 <span class="text-end">
+                    <!-- pageContext.request.contextPath est le nom du projet -->
+                    <!-- <i></i> concerne les icones de FontAwesome -->
                     <a class="link-primary" href="${pageContext.request.contextPath}/nouvelle?id=${liste.id}"><i
                             class="fa-solid fa-pen"></i></a>
                     <a class="link-primary" href="${pageContext.request.contextPath}/panier?id=${liste.id}"><i
